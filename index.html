@@ -22,7 +22,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
     .word-box {
-      margin-top: 40px;
+      margin-top: 30px;
       background: rgba(255, 255, 255, 0.9);
       padding: 30px;
       border-radius: 20px;
@@ -45,26 +45,78 @@
       color: #444;
     }
     .footer {
-      margin-top: 50px;
+      margin-top: 40px;
       font-size: 1rem;
       color: #777;
+    }
+    .countdown {
+      font-size: 1.6rem;
+      margin-top: 20px;
+      color: #d81b60;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 8px 16px;
+      border-radius: 10px;
+      display: inline-block;
+    }
+    .nav {
+      margin-top: 40px;
+    }
+    .nav a {
+      text-decoration: none;
+      margin: 0 15px;
+      color: #1976d2;
+      font-weight: bold;
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 8px 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .nav a:hover {
+      background-color: #e0f7fa;
     }
   </style>
 </head>
 <body>
-  <h1>💙 Word of the Day - Day 2 💙</h1>
+  <h1>🌞 Good Morning, You Crackhead! 💙</h1>
 
   <div class="word-box">
     <div class="emoji">😆💥</div>
-    <h2>Crackhead</h2>
+    <h2>Word of the Day: Crackhead</h2>
     <p class="meaning">
       Because no one else matches my chaotic vibe like you. From dumb jokes to sudden deep convos,
       we’re <strong>peak entertainment</strong> together. Keep being your hilarious self 🧠✨
     </p>
   </div>
 
+  <div class="countdown" id="countdown"></div>
+
   <div class="footer">
     Come back tomorrow for another one... you better not skip 😤💌
   </div>
+
+  <div class="nav">
+    <a href="day1.html">⬅ Back to Day 1</a>
+    <a href="day3.html">Next Day ➡</a>
+  </div>
+
+  <script>
+    const birthday = new Date('July 10, 2025 00:00:00').getTime();
+    const countdownEl = document.getElementById('countdown');
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const gap = birthday - now;
+
+      const days = Math.floor(gap / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((gap % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((gap % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((gap % (1000 * 60)) / 1000);
+
+      countdownEl.innerText = `🎂 ${days}d ${hours}h ${mins}m ${secs}s until your birthday!`;
+    }
+
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
 </body>
 </html>
